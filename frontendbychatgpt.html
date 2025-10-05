@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LifeLens | Healthcare Platform</title>
+
+  <style>
+    /* --- Base Reset --- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top left, #091833, #070b26, #050a1f);
+      color: #e2e8f0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* --- Navbar --- */
+    header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo img {
+      width: 36px;
+      height: 36px;
+    }
+
+    .logo span {
+      font-size: 1.5rem;
+      font-weight: 600;
+      background: linear-gradient(90deg, #6fffe9, #9b5de5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    nav a { /*Targets all anchor (<a>) tags inside a <nav>- Sets base style for links */
+      color: #cbd5e1;
+      text-decoration: none;
+      margin: 0 15px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {  /*Targets those links when hovered-Changes color on mouse-over*/
+      color: #6fffe9;
+    }
+
+    .lang {
+      color: #9ca3af;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    /* --- Hero Section --- */
+    .hero {
+      text-align: center;
+      margin: 60px 0 40px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      background: linear-gradient(90deg, #39ff14, #9b5de5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      margin-top: 10px;
+      color: #94a3b8;
+      font-size: 1.1rem;
+    }
+
+    /* --- Main Layout --- */
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 30px;
+      width: 85%;
+      margin-bottom: 50px;
+    }
+
+    /* --- Left Form --- */
+    .form-card {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: 0 0 25px rgba(155, 93, 229, 0.2);
+    }
+
+    .form-card h3 {
+      margin-bottom: 20px;
+      color: #a5b4fc;
+    }
+
+    .form-card input,
+    .form-card select {
+      width: 100%;
+      margin: 8px 0;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+    }
+
+    .form-card input::placeholder {
+      color: #9ca3af;
+    }
+
+    .btn {
+      background: linear-gradient(90deg, #9b5de5, #39ff14);
+      color: #fff;
+      border: none;
+      padding: 12px;
+      width: 100%;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .btn:hover {
+      transform: scale(1.03);
+    }
+
+    /* --- Services --- */
+    .services {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .service-card {
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 14px;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .service {
+      background: rgba(255, 255, 255, 0.07);
+      padding: 15px;
+      border-radius: 10px;
+      transition: 0.3s;
+    }
+
+    .service:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .service h4 {
+      color: #6fffe9;
+      margin-bottom: 6px;
+    }
+
+    .service p {
+      color: #cbd5e1;
+      font-size: 0.9rem;
+    }
+
+    /* --- Quick Health --- */
+    .quick {
+      background: rgba(255, 255, 255, 0.06);
+      padding: 20px;
+      border-radius: 14px;
+      width: 85%;
+      margin-bottom: 60px;
+    }
+
+    .quick h3 {
+      color: #a5b4fc;
+      margin-bottom: 15px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .tag {
+      background: linear-gradient(90deg, #9b5de5, #39ff14);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #fff;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .tag:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <img src="https://cdn-icons-png.flaticon.com/512/2966/2966480.png" alt="logo" />
+      <span>LifeLens</span>
+    </div>
+
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Contact</a>
+    </nav>
+
+    <div class="lang">EN | ES</div>
+  </header>
+
+  <section class="hero">
+    <h1>LIFELENS</h1>
+    <p>Your Complete Healthcare Vision | Advanced Medical Platform | Health Analytics</p>
+  </section>
+
+  <section class="container">
+    <!-- Left Form -->
+    <div class="form-card">
+      <h3>Sign In / Register</h3>
+      <input type="text" placeholder="Full Name" />
+      <select><option>Age</option></select>
+      <select><option>Sex</option></select>
+      <input type="text" placeholder="Height (cm)" />
+      <input type="text" placeholder="Weight (kg)" />
+      <select><option>Blood Group</option></select>
+      <input type="text" placeholder="Medical Conditions" />
+      <input type="text" placeholder="Current Medications" />
+      <input type="text" placeholder="Allergies" />
+      <button class="btn">Sign In</button>
+    </div>
+
+    <!-- Services -->
+    <div class="services">
+      <div class="service-card">
+        <div class="service">
+          <h4>🩺 Health Assessment</h4>
+          <p>AI-powered comprehensive health evaluations with real-time analysis and personalized recommendations for wellbeing.</p>
+        </div>
+        <div class="service">
+          <h4>👨‍⚕️ Doctor Consultation</h4>
+          <p>Connect with certified healthcare professionals through secure virtual consultations and expert guidance.</p>
+        </div>
+        <div class="service">
+          <h4>🔄 Routine Checkup</h4>
+          <p>Advanced health monitoring with preventive care analytics to maintain optimal physical condition.</p>
+        </div>
+        <div class="service">
+          <h4>📚 Medical Library</h4>
+          <p>Access a comprehensive medical database with research-backed information and health insights.</p>
+        </div>
+        <div class="service">
+          <h4>🤖 Health Assistant</h4>
+          <p>Next-gen AI health companion providing predictive care guidance and recommendations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="quick">
+    <h3>Quick Health Resources</h3>
+    <div class="tags">
+      <div class="tag">💊 Medicine Tips</div>
+      <div class="tag">🥗 Nutrition</div>
+      <div class="tag">🧠 Mental Health</div>
+      <div class="tag">🩸 Kidney Support</div>
+      <div class="tag">🍼 Baby Support</div>
+      <div class="tag">📚 Health Education</div>
+    </div>
+  </section>
+</body>
+</html>
